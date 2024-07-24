@@ -1,4 +1,4 @@
-# [✨Apps Centralizer Streamlit✨](https://expensestrackerr.streamlit.app/)
+# [✨Apps Centralizer Streamlit✨](https://apps-centralizer.streamlit.app/)
 <p align="left"> 
     <a href="https://share.streamlit.io/">
         <img width="140" src="assets/img/streamlit_icon.png" align="left"></img>
