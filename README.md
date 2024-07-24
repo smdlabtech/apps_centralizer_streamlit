@@ -21,7 +21,7 @@ Retrouver toutes les applications listées dans le <strong>Gestionnaire de Tâch
 
 <!--------------------->
 ### 💡 Conseils : 
-Avant de faire chaque ***commit***, pensez à éxécuter la commande suivante pour mettre à jour la documentation des fonctions, [⚙️```dev_documentations.md```](/dev_documentations.md) : 
+Avant de faire chaque ***commit***, pensez à éxécuter la commande suivante pour mettre à jour la documentation des fonctions, [⚙️```dev_documentations.md```](/_docs/dev_documentations.md) : 
 ```javascript copy
 python dev_generate_docs.py
 ```
