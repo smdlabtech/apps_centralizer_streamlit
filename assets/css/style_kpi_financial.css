@@ -1,0 +1,15 @@
+.metric-container {
+    background-color: #f0f0f0; /* Couleur de fond du conteneur */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f77b4; /* Couleur du texte en fonction de la valeur */
+}
+.metric-label {
+    font-size: 18px;
+    color: black;
+}

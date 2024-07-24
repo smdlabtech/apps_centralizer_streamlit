@@ -1,0 +1,21 @@
+[global]
+email = "smdlabtech@gmail.com"
+
+[server]
+port = 8501
+enableCORS = false
+headless = true
+
+[browser]
+serverAddress = "votre_domaine_ou_ip"
+serverPort = 8501
+gatherUsageStats = false
+
+[theme]
+# Light Theme
+base="light"
+primaryColor="#1a73e8"
+backgroundColor="#d5dfea"
+secondaryBackgroundColor="#a8b4c4"
+textColor="#10192d"
+font="sans serif"

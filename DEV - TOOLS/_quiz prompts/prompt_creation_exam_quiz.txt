@@ -1,0 +1,84 @@
+
+T'es vraiment pas inspirer.
+Tu dois juste faire en sorte de proposer des types de questions et uses cases qui peuvent 
+aider à trouver à bien se préparer et s'entrainer comme les vrais type d'épreuves proposés lors des test Google Professional Data Engineer.
+
+
+Donne moi 5 questions en uses cases : 
+Inspire toi de ces types de question pour créer un quiz.
+Fais des recherches sur internet pour constituer les mises en situations, uses cases.
+https://www.examtopics.com/exams/google/associate-cloud-engineer/view/
+
+
+Data Engineer Learning Path : Google Cloud Cloud Platform
+Fais des recherches sur internet pour t'inspirer et créer les questions
+
+Voici des thèmes sur la certifications Google data engineer.
+Propose des Quiz de 20 questions en .json
+
+Voici les thème qui seront abordés :
+
+## 1 : 
+Theme : 02 Preparing for your Professional Data Engineer Journey
+Theme : 03 Modernizing Data Lakes and Data Warehouses with Google Cloud
+Theme : 04 Building Batch Data Pipelines on Google Cloud
+Theme : 05 Building Resilient Streaming Analytics Systems on Google Cloud
+Theme : 06 Smart Analytics, Machine Learning, and AI on Google Cloud
+Theme : 07 Serverless Data Processing with Dataflow: Foundations
+Theme : 08 Serverless Data Processing with Dataflow: Develop Pipelines
+Theme : 09 Serverless Data Processing with Dataflow: Operations
+Theme : 10 Prepare Data for ML APIs on Google Cloud
+Theme : 11 Build a Data Warehouse with BigQuery
+Theme : 12 Engineer Data for Predictive Modeling with BigQuery ML
+Theme : 13 Build a Data Mesh with Dataple
+
+
+
+
+#-----------#
+ Question 1: 
+#-----------#
+Several years ago, you built a machine learning model for an ecommerce company. 
+Your model made good predictions. Then a global pandemic occurred, lockdowns were imposed, and many people started working from home.
+Now the quality of your model has degraded. You want to improve the quality of your model and prevent future performance degradation. 
+What should you do?
+
+A. Retrain the model with data from the first 30 days of the lockdown.
+B. Monitor data until usage patterns normalize, and then retrain the model.
+C. Retrain the model with data from the last 30 days. After one year, return to the older model.
+D. Retrain the model with data from the last 30 days. Add a step to continuously monitor model input data for changes, and retrain the model.
+
+
+My Choice : D.
+The correct answer is : ?
+
+
+
+{
+  "quiz": {
+    "instructions": "This quiz contains 20 multiple-choice questions covering various topics related to Google Cloud Platform's Data Engineer certification. Answer all questions to get your final score.",
+    "questions": [
+      {
+        "questionText" : " You are working on optimizing BigQuery for a query that is run repeatedly on a single table. The data queried is about 1 GB, and some rows are expected to change about 10 times every hour. You have optimized the SQL statements as much as possible. You want to further optimize the query's performance. What should you do?",
+        "options":[
+			"A. Create a materialized view based on the table, and query that view.",
+			"B. Enable caching of the queried data so that subsequent queries are faster.",
+			"C. Create a scheduled query, and run it a few minutes before the report has to be created.",
+			"D. Reserve a larger number of slots in advance so that you have maximum compute power to execute the query."
+        ],
+        "answerIndex": [0],
+        "Feedback": [
+          "Option A. is correct because materialized views periodically cache the results of a query for increased performance. Materialized views are suited to small datasets that are frequently queried. When underlying table data changes, the materialized view invalidates the affected portions and re-reads them.",
+          "Option B. is not correct because caching is automatically enabled but is not performant when the underlying data changes.",
+          "Option C. is not correct because scheduled queries let you schedule recurring queries but do not provide specific performance optimizations. Also, running a query too early could use old/stale data.",
+          "Option D. is not correct because reserving more slots guarantees the availability of BigQuery slots but does not improve performance."
+        ],
+        "links": [
+          "https://cloud.google.com/bigquery/docs/materialized-views-intro",
+          "https://cloud.google.com/bigquery/docs/materialized-views-create",
+          "https://cloud.google.com/bigquery/docs/materialized-views-use"
+        ]
+      }
+    ]
+  }
+}

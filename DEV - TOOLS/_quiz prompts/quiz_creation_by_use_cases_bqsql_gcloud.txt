@@ -1,0 +1,41 @@
+
+Data Engineer Learning Path : Google Cloud Cloud Platform
+Fais des recherches sur internet pour t'inspirer et créer les questions
+
+Voici des thèmes sur la certifications Google data engineer.
+Propose des Quiz de 20 questions en .json
+
+Voici les thème qui seront abordés :
+
+## 1 : 
+Theme : 02 Preparing for your Professional Data Engineer Journey
+Theme : 03 Modernizing Data Lakes and Data Warehouses with Google Cloud
+Theme : 04 Building Batch Data Pipelines on Google Cloud
+Theme : 05 Building Resilient Streaming Analytics Systems on Google Cloud
+Theme : 06 Smart Analytics, Machine Learning, and AI on Google Cloud
+Theme : 07 Serverless Data Processing with Dataflow: Foundations
+Theme : 08 Serverless Data Processing with Dataflow: Develop Pipelines
+Theme : 09 Serverless Data Processing with Dataflow: Operations
+Theme : 10 Prepare Data for ML APIs on Google Cloud
+Theme : 11 Build a Data Warehouse with BigQuery
+Theme : 12 Engineer Data for Predictive Modeling with BigQuery ML
+Theme : 13 Build a Data Mesh with Dataple
+
+
+##2: 
+Cette fois-ci, je veux que tu intègre des requête Big query sql à valider :
+
+1- Pour le traitement et notoyage de données, de création de data lake
+2- Pour faire du ML (BigQuery ML, Vertex AI) avec les différents types de modèles 
+3- Donner un ordre de validation des process d'analyse de données en Big query SQL
+4- Donner des commandes 'gcloud' à vérifier pour préparer et lancer des pipline via dataflow, dataplex ou dataproc
+5- Donner des commandes python apache beam à valider pour le traitement de données et créeation de pipline
+6- Donner également les commandes big query sql pour obtenir les "features engineering" dans bigquery ML
+7- 
+
+
+Tu prendras des cas d'usages comme Cymbal Retails, New York Taxis Trips 2015 et 
+Tu ira sur internet et faire les recherche nécessaire pour bien constituer le quiz. 
+Tu pourra également t'inspirer de ce que tu vas trouver sur site internet pour bien améliorer le quiz.
+
+site : https://github.com/tuancamtbtx/gcp-professional-data-engineer/blob/main/Test/Test1.md
