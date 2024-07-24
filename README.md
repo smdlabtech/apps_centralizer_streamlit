@@ -18,7 +18,6 @@ Retrouver toutes les applications listées dans le <strong>Gestionnaire de Tâch
     </a>
 </p><br>
 
-
 <!--------------------->
 ### 💡 Conseils : 
 Avant de faire chaque ***commit***, pensez à éxécuter la commande suivante pour mettre à jour la documentation des fonctions, [⚙️```dev_documentations.md```](/_docs/dev_documentations.md) : 
