@@ -5,3 +5,4 @@ datetime
 fuzzywuzzy
 Levenshtein
 Carousel
+streamlit_carousel 
