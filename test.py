@@ -1,4 +1,6 @@
 import streamlit as st
+import os
+from streamlit_carousel import carousel
 import app_styles
 
 
@@ -10,7 +12,7 @@ if 'page_layout' not in st.session_state:
 # Configuration initiale de la page
 st.set_page_config(
     page_title="Apps Centralizer",
-    page_icon="Apps Centralizer",
+    page_icon="👨‍💻",
     layout=st.session_state.page_layout,
     initial_sidebar_state="expanded",
     menu_items={
@@ -20,8 +22,7 @@ st.set_page_config(
     }
 )
 
-
-
+#----------#
 # Functions 
 def display_html(file_name):
     try:
@@ -45,17 +46,68 @@ def apply_js(file_name):
         st.error(f"Erreur: {e}")
 
 
+def create_icon_link(icon_class, link, color, size="2x"):
+    """
+    Crée un HTML pour une icône cliquable qui redirige vers un lien donné.
+
+    :param icon_class: Classe de l'icône (par exemple, "fab fa-linkedin").
+    :param link: URL vers laquelle l'icône redirige.
+    :param color: Couleur de l'icône.
+    :param size: Taille de l'icône (par exemple, "2x").
+    """
+    html_code = f"""
+    <a href="{link}" target="_blank">
+        <i class="{icon_class} fa-{size}" style="color:{color};"></i>
+    </a>
+    """
+    return html_code
+
+
+#--------------#
+## Set Carrousel 
+def setup_carousel(image_folder, start_index, end_index, carousel_app_list):
+    # Générer les chemins des images
+    images = [f"{image_folder}/app ({i}).JPG" for i in range(start_index, end_index + 1)]
+    
+    # Vérifier que les images existent
+    for image in images:
+        if not os.path.exists(image):
+            st.error(f"Image non trouvée: {image}")
+    
+    # Définir les éléments du carrousel avec les images et les liens correspondants
+    carousel_items = [
+        {"img": images[i], 
+         "caption": item["caption"], 
+         "title": item["title"], 
+         "text": item["text"], "url": item["url"]}
+        for i, item in enumerate(carousel_app_list)
+    ]
+    
+    # Afficher le carrousel
+    return carousel(carousel_items)
+
+
+
+
+## Carousel images 
+carousel_app_list = [
+    {"caption": "Expenses Tracker", "title": "Expenses Tracker", "text": "Expenses Tracker", "url": "https://expensestrackerr.streamlit.app/"},
+    {"caption": "Professional Data Engineer Quizes", "title": "Professional Data Engineer Quizes", "text": "Professional Data Engineer Quizes", "url": "https://quizappdelpgcp.streamlit.app/"},
+    {"caption": "Analyse Immo-info", "title": "Analyse Immo-info", "text": "Analyse Immo-info", "url": "https://analyse-immo-info.streamlit.app/"},
+    {"caption": "Predicting the Creditworthiness of Bank Customers", "title": "Predicting the Creditworthiness of Bank Customers", "text": "Predicting the Creditworthiness of Bank Customers", "url": "https://cyclientscreditworthinesspyapp-dq6q6sm24bakhp34memfrr.streamlit.app/"}
+]
+
+
+
+
 #---------#
 # MAIN
 #---------#
 def main():
     st.markdown("<h1 style='text-align: center;'>✨Apps Centralizer✨</h1>", unsafe_allow_html=True)
 
-    # Titre de l'application
-    # st.title("Centralisateur d'applications Streamlit")
-    
     with st.sidebar:
-        app_styles.load_img("senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", width=5, use_column_width=True, output_format='PNG')
+        st.image("assets/img/senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", use_column_width=True)
         st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
 
         # Sidebar gestions
@@ -76,28 +128,33 @@ def main():
             st.rerun()
 
 
-
-    # Description
+    #------------------#
+    # App's Description
+    #------------------#
     st.write("Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
 
-    ### Liste des applications avec leurs liens ###
+
+    ### Liste des applications avec leurs liens
+    # Affiche la liste des applications avec les liens
     apps = {
         "Expenses Tracker": "https://expensestrackerr.streamlit.app/",
         "Professional Data Engineer Quizes": "https://quizappdelpgcp.streamlit.app/",
-        "Analyse Immo-info": "https://analyseimmo-info.streamlit.app/",
+        "Analyse Immo-info": "https://analyse-immo-info.streamlit.app/",
         "Predicting the Creditworthiness of Bank Customers": "https://cyclientscreditworthinesspyapp-dq6q6sm24bakhp34memfrr.streamlit.app/",
-
         # Ajoutez plus d'applications ici
     }
-
-
-    # Affichage des liens
+    
     for app_name, app_link in apps.items():
         st.markdown(f"- [{app_name}]({app_link})")
+    
 
-    # Ajout d'une section de contact (facultatif)
+    ## Insertion du carrousel : Chemin vers les images et afficher le carrousel
+    setup_carousel("assets/img", 1, 4, carousel_app_list)
+
+
+    ## Ajout d'une section de contact (facultatif)
     st.write("## Contact")
-    st.write("If you have any questions or suggestions, please contact me at [smdlabtech@gmail.com](smdlabtech@gmail.com).")
+    st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
 
     # Optionnel: Ajout de styles personnalisés
     st.markdown(
@@ -113,12 +170,34 @@ def main():
         """,
         unsafe_allow_html=True
     )
+    
+    
+        # Inclure le lien vers la bibliothèque Font Awesome
+    st.markdown("""
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    """, unsafe_allow_html=True)
+        
+    
+    # Générer le HTML pour les icônes
+    github_icon = create_icon_link("fab fa-github", "https://github.com/smdlabtech", "black")
+    gmail_icon = create_icon_link("fas fa-envelope", "mailto:smdlabtech@gmail.com", "orange")
+    linkedin_icon = app_styles.create_icon_link("fab fa-linkedin", "https://www.linkedin.com/in/dayasylla/", "#0e76a8")
+    
+    st.markdown(f"""
+    <div style="display: flex; justify-content: left; gap: 10px;">
+        {linkedin_icon}
+        {github_icon}
+        {gmail_icon}
 
-
+    </div>
+    """, unsafe_allow_html=True)
+    
+    
+    #------------------------#
     display_html("footer.html")
     with st.sidebar:
         display_html("footer.html")
-        
+
 
 
 #------------------------#

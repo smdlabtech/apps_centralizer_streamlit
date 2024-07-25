@@ -12,7 +12,7 @@ def page_aboutme():
 
     # Afficher l'image avec app_styles
     app_styles.styles_img("portofolio-rond.jpg", caption="Passionate about AI🤖 [Data Scientist]", width=2, use_column_width=True, output_format='JPG')
-    st.subheader("About Me :")     # Ajouter les icônes côte à côte
+    st.subheader("About Me : ✨ Data Scientist | Data Engineer ✨")     # Ajouter les icônes côte à côte
     st.markdown("""
         👋 Hi, I'm Daya
         I'm a data scientist with a passion for soccer and basketball.
