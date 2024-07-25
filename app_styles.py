@@ -2,6 +2,8 @@ import os
 import streamlit as st
 from PIL import Image
 import io
+import base64
+
 
 
 
@@ -59,6 +61,8 @@ def styles_img(image_file, caption=None, use_column_width=True, width=None, heig
     return st.image(image_path, caption=caption, use_column_width=use_column_width, width=width, output_format=output_format)
 
 
+
+#-------------
 def load_img(image_file, caption=None, use_column_width=True, width=None, height=None, output_format=None):
     """
     Charge et affiche une image dans une application Streamlit.
@@ -73,7 +77,30 @@ def load_img(image_file, caption=None, use_column_width=True, width=None, height
     """
     # Construire le chemin complet vers le fichier image en utilisant le nom du fichier passé en argument
     image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"assets", "img", image_file)
-    return st.image(image_path, caption=caption, use_column_width=use_column_width, width=width, output_format=output_format)
+    if os.path.exists(image_path):
+        return st.image(image_path, caption=caption, use_column_width=use_column_width, width=width, output_format=output_format)
+    else:
+        st.error(f"Image {image_file} not found.")
+
+def load_img_as_base64(image_file):
+    """
+    Charge une image et la convertit en base64.
+    
+    Args:
+    image_file (str): Nom du fichier image à charger.
+    
+    Returns:
+    str: L'image encodée en base64.
+    """
+    image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "img", image_file)
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        st.error(f"File {image_file} not found.")
+        return None
+
+#--------------------------
 
 
 def load_img_clickable(image_file, link, alt_text, width=None, height=None, style="width:100%;"):

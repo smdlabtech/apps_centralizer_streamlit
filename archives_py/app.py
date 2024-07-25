@@ -54,9 +54,6 @@ def go_to_next_page():
     if current_index < len(pages) - 1:
         st.session_state.page = pages[current_index + 1]
 
-#---------#
-# MAIN
-#---------#
 def main():
     st.markdown("<h1 style='text-align: center;'>💵Expenses Tracker</h1>", unsafe_allow_html=True)
 

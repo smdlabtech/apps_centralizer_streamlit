@@ -10,7 +10,7 @@ if 'page_layout' not in st.session_state:
 # Configuration initiale de la page
 st.set_page_config(
     page_title="Apps Centralizer",
-    page_icon="Apps Centralizer",
+    page_icon="🎯",
     layout=st.session_state.page_layout,
     initial_sidebar_state="expanded",
     menu_items={
