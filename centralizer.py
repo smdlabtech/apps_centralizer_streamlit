@@ -154,6 +154,7 @@ def main():
     for app_name, app_link in apps.items():
         st.markdown(f"- [{app_name}]({app_link})")
     
+    st.write("Please preview down below all apps.😉")
     # Insertion du carrousel : Chemin vers les images et afficher le carrousel
     setup_carousel("assets/img", 1, 4, carousel_app_list)
 
