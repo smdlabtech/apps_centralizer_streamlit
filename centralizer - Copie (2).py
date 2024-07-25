@@ -93,27 +93,16 @@ def main():
     st.markdown("<h1 style='text-align: center;'>✨Apps Centralizer✨</h1>", unsafe_allow_html=True)
 
     with st.sidebar:
-
-        # # App's Description
-        st.markdown("# Home Page : ")
-        st.write("Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
-        
         # app_styles.load_img("senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", width=5, use_column_width=True, output_format='PNG')
-        # st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
-        
-        # # App's Description
-        # st.markdown("# Home Page : ")
-        # st.write("**Home Page** : Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
+        st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
 
-        
-        
         # Sidebar gestions
         if "page" not in st.session_state:
             st.session_state.page = "🏠HomePage"
             st.session_state.page_layout = "wide"
 
         # Ajout du bouton radio pour choisir la largeur de la page
-        page_size_option = st.sidebar.radio("**Page size**", ["Wide", "Normal"])
+        page_size_option = st.sidebar.radio("Page size", ["Wide", "Normal"])
         
         # Vérifiez si la configuration de la page doit être mise à jour
         if page_size_option == "Normal" and st.session_state.page_layout != "centered":
@@ -124,23 +113,8 @@ def main():
             st.session_state.page_layout = "wide"
             st.rerun()
 
-        # Ajout des icônes de contact
-        st.markdown("## Contact")
-        st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
-
-    
-        github_icon = create_icon_link("fab fa-github", "https://github.com/smdlabtech", "black")
-        gmail_icon = create_icon_link("fas fa-envelope", "mailto:smdlabtech@gmail.com", "red")
-        linkedin_icon = create_icon_link("fab fa-linkedin", "https://www.linkedin.com/in/dayasylla/", "#0e76a8")
-        
-        st.markdown(f"""
-        <div style="display: flex; justify-content: left; gap: 10px;">
-            {linkedin_icon}
-            {github_icon}
-            {gmail_icon}
-        </div>
-        """, unsafe_allow_html=True)
-    
+    # App's Description
+    st.write("Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
 
     # Liste des applications avec leurs liens
     apps = {
@@ -157,9 +131,9 @@ def main():
     # Insertion du carrousel : Chemin vers les images et afficher le carrousel
     setup_carousel("assets/img", 1, 4, carousel_app_list)
 
-    # # Ajout d'une section de contact (facultatif)
-    # st.write("## Contact")
-    # st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
+    # Ajout d'une section de contact (facultatif)
+    st.write("## Contact")
+    st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
 
     # Optionnel: Ajout de styles personnalisés
     st.markdown(
@@ -179,6 +153,19 @@ def main():
     # Inclure le lien vers la bibliothèque Font Awesome
     st.markdown("""
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    """, unsafe_allow_html=True)
+        
+    # Générer le HTML pour les icônes
+    github_icon = create_icon_link("fab fa-github", "https://github.com/smdlabtech", "black")
+    gmail_icon = create_icon_link("fas fa-envelope", "mailto:smdlabtech@gmail.com", "red")
+    linkedin_icon = create_icon_link("fab fa-linkedin", "https://www.linkedin.com/in/dayasylla/", "#0e76a8")
+    
+    st.markdown(f"""
+    <div style="display: flex; justify-content: left; gap: 10px;">
+        {linkedin_icon}
+        {github_icon}
+        {gmail_icon}
+    </div>
     """, unsafe_allow_html=True)
     
     # Afficher le pied de page
