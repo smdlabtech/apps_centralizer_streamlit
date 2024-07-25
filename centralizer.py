@@ -93,7 +93,7 @@ def main():
     st.markdown("<h1 style='text-align: center;'>✨Apps Centralizer✨</h1>", unsafe_allow_html=True)
 
     with st.sidebar:
-        st.image("assets/img/senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", use_column_width=True)
+        app_styles.load_img("senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", width=5, use_column_width=True, output_format='PNG')
         st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
 
         # Sidebar gestions
