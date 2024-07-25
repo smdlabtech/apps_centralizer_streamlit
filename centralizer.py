@@ -96,7 +96,7 @@ def main():
 
         # # App's Description
         st.markdown("# Home Page : ")
-        st.write("Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
+        st.write("Welcome to the Central Repos.")
         
         # app_styles.load_img("senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", width=5, use_column_width=True, output_format='PNG')
         # st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
