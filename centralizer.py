@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-import carousel
+from Carousel import carousel
 import app_styles
 
 
