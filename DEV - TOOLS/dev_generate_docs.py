@@ -49,7 +49,7 @@ def generate_documentation_md(directory_path, output_file):
         directory_path (str): The path of the directory containing the files.
         output_file (str): The path of the output Markdown file.
     """
-    excluded_dirs = [".", "venv", ".env_win", ".git", "__pycache__", "_data", "data", "data_lcl_pdf", "assets", "archives", "_markdown_modules_courses", "assets", "Bills GCP", "Google Cloud Skills Boost", "PPT", "Quiz", "Quiz prompts", "archives_py", "_topics", "archive_exam_topics", "archives_markdown", "archives_quiz_json", "archives_topics", "_quiz"]
+    excluded_dirs = [".", "venv", ".env_win", ".git", "__pycache__", "_data", "data", "data_lcl_pdf", "assets", "archives", "_markdown_modules_courses", "assets", "Bills GCP", "Google Cloud Skills Boost", "PPT", "Quiz", "Quiz prompts", "archives_py", "_topics", "archive_exam_topics", "archives_markdown", "archives_quiz_json", "archives_topics", "_quiz", "DEV - TOOLS"]
     excluded_files = [".gitignore", ".DS_Store", "LICENSE", "gen_topics_with_images.py"]
     
     with open(output_file, 'w', encoding='utf-8') as md_file:
@@ -81,8 +81,13 @@ def generate_documentation_md(directory_path, output_file):
 if __name__ == "__main__":
     # Get the current directory of the script
     current_dir = Path(__file__).resolve().parent
+    docs_directory_path = os.path.join(current_dir, "_docs")
     
-    # Use current_dir as directory_path to generate the documentation
-    directory_path = str(current_dir)
-    output_file = "dev_documentations.md"
-    generate_documentation_md(directory_path, output_file)
+    # Check if the "docs" directory exists
+    if not os.path.isdir(docs_directory_path):
+        print(f"Error: The 'docs' directory does not exist at '{docs_directory_path}'.")
+        exit(1)  # Exit the program with an error status
+    
+    # Define the full path for the output file within the "docs" directory
+    output_file_path = os.path.join(docs_directory_path, "dev_documentations.md")
+    generate_documentation_md(current_dir, output_file_path)
