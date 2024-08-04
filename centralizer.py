@@ -93,21 +93,10 @@ def main():
     st.markdown("<h1 style='text-align: center;'>✨Apps Centralizer✨</h1>", unsafe_allow_html=True)
 
     with st.sidebar:
-
-        # # App's Description
         st.markdown("# Home Page : ")
         st.write("Welcome to the Central Repos.")
         
-        # app_styles.load_img("senlab_ia_gen_rmv_bgrd.png", caption="🇸🇳 SenLab IA 🇫🇷", width=5, use_column_width=True, output_format='PNG')
-        # st.sidebar.markdown("<h1 style='text-align: left; color: grey;'>Sidebar Panel : </h1>", unsafe_allow_html=True)
-        
-        # # App's Description
-        # st.markdown("# Home Page : ")
-        # st.write("**Home Page** : Welcome to the Central Repository of all my Streamlit applications. Click on the links below to access each application.")
-
-        
-        
-        # Sidebar gestions
+        # Sidebar gestion
         if "page" not in st.session_state:
             st.session_state.page = "🏠HomePage"
             st.session_state.page_layout = "wide"
@@ -118,16 +107,14 @@ def main():
         # Vérifiez si la configuration de la page doit être mise à jour
         if page_size_option == "Normal" and st.session_state.page_layout != "centered":
             st.session_state.page_layout = "centered"
-            st.rerun()
-            
+            st.experimental_rerun()
         elif page_size_option == "Wide" and st.session_state.page_layout != "wide":
             st.session_state.page_layout = "wide"
-            st.rerun()
+            st.experimental_rerun()
 
         # Ajout des icônes de contact
         st.markdown("## Contact")
         st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
-
     
         github_icon = create_icon_link("fab fa-github", "https://github.com/smdlabtech", "black")
         gmail_icon = create_icon_link("fas fa-envelope", "mailto:smdlabtech@gmail.com", "red")
@@ -141,7 +128,6 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-
     # Liste des applications avec leurs liens
     apps = {
         "Expenses Tracker": "https://expensestrackerr.streamlit.app/",
@@ -157,10 +143,6 @@ def main():
     st.write("Please preview down below all apps.😉")
     # Insertion du carrousel : Chemin vers les images et afficher le carrousel
     setup_carousel("assets/img", 1, 4, carousel_app_list)
-
-    # # Ajout d'une section de contact (facultatif)
-    # st.write("## Contact")
-    # st.write("If you have any questions or suggestions, please contact me at : [smdlabtech@gmail.com](smdlabtech@gmail.com).")
 
     # Optionnel: Ajout de styles personnalisés
     st.markdown(
